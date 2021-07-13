@@ -24,13 +24,11 @@ def encrypt(text, n):
     length = len(text)
     evens = ''
     odds = ''
-    g = gen(length)
-    for Letter in text:
-        curentLetter = next(g)
-        if curentLetter % 2 == 1:
-            evens += text[curentLetter]
+    for Letter in gen(length):
+        if Letter % 2 == 1:
+            evens += text[Letter]
         else:
-            odds += text[curentLetter]
+            odds += text[Letter]
     result =  evens + odds
     for times in range(n - 1):
         result = encrypt(result, 1)
